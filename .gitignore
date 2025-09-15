@@ -1,0 +1,33 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.swp
+
+# Django
+db.sqlite3
+*.sqlite3
+
+# Ambiente virtual
+.venv/
+env/
+venv/
+ENV/
+
+# Configuração do sistema
+*.log
+*.pot
+*.mo
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Dados sensíveis
+*.env
+settings.py
+
+#

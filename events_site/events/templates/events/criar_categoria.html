@@ -1,0 +1,15 @@
+<h1>Criar Categoria</h1>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Criar</button>
+</form>
+<h1>Categorias</h1>
+<a href="{% url 'criar_categoria' %}" class="btn btn-primary mb-3">Criar nova categoria</a>
+<ul>
+  {% for c in categorias %}
+    <li>{{ c.designacao }}</li>
+  {% empty %}
+    <li>Sem categorias.</li>
+  {% endfor %}
+</ul>
