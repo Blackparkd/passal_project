@@ -1,14 +1,13 @@
 from django.contrib import admin
-from .models import Evento, Categoria, Localizacao
+from .models import Event, Location
 
-@admin.register(Evento)
-class EventoAdmin(admin.ModelAdmin):
-    list_display = ("data_inicio", "data_fim", "gasto")
+@admin.register(Event)
+class EventAdmin(admin.ModelAdmin):
+    list_display = ("start_date", "end_date", "expense")
 
-@admin.register(Categoria)
-class CategoriaAdmin(admin.ModelAdmin):
-    list_display = ("designacao",)
+@admin.register(Location)
+class LocationAdmin(admin.ModelAdmin):
+    list_display = ("name", "street", "zip_code", "capacity")
 
-@admin.register(Localizacao)
-class LocalizacaoAdmin(admin.ModelAdmin):
-    list_display = ("localidade", "rua", "cod_postal", "capacidade")
+
+    # FIX HERE #

@@ -1,0 +1,32 @@
+<!-- Location list -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'events/page_style.css' %}">
+    <meta charset="UTF-8">
+    <title>Location List</title>
+</head>
+<body>
+    <h1>Location List</h1>
+    <hr>
+    <ul class="location-list-highlight">
+      {% for location in locations %}
+        <li> 
+          <strong class="name-highlight">{{ location.name }}</strong><br>
+            Country: {{ location.country }}<br>
+            City: {{ location.city }}<br>
+            Street: {{ location.street }}<br>
+            Zip Code: {{ location.zip_code }}<br>
+            Capacity: {{ location.capacity }}<br>
+            Notes: {{ location.notes }}<br>
+        </li>
+        <hr>
+      {% empty %}
+        <li>No locations found.</li>
+      {% endfor %}
+    </ul>
+    <a href="{% url 'event_list' %}" class="btn btn-custom1 spaced-top">Back to Events</a>
+</body>
+</html>

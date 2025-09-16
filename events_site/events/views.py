@@ -1,24 +1,33 @@
 # Create your views here.
 from django.shortcuts import render, redirect
-from .models import Evento
-from .models import Categoria
-from .forms import CategoriaForm
+from .models import Event, Location, Artist
+from .forms import EventForm, LocationForm
 
 def event_list(request):
-    eventos = Evento.objects.all()
-    return render(request, "events/list.html", {"eventos": eventos})
+    events = Event.objects.all()
+    return render(request, "events/list.html", {"events": events})
+
+def location_list(request):
+    locations = Location.objects.all()
+    return render(request, "events/locations/location_list.html", {"locations": locations})
 
 
-def lista_categorias(request):
-    categorias = Categoria.objects.all()
-    return render(request, "events/lista_categorias.html", {"categorias": categorias})
-
-def criar_categoria(request):
+def create_location(request):
     if request.method == "POST":
-        form = CategoriaForm(request.POST)
+        form = LocationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("lista_categorias")
+            return redirect("location_list")
     else:
-        form = CategoriaForm()
-    return render(request, "events/criar_categoria.html", {"form": form})
+        form = LocationForm()
+    return render(request, "events/locations/create_location.html", {"form": form})
+
+def create_event(request):
+    if request.method == "POST":
+        form = EventForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("event_list")
+    else:
+        form = EventForm()
+    return render(request, "events/events/create_event.html", {"form": form})

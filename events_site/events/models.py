@@ -4,33 +4,39 @@ from django.db import models
 # events/models.py
 from django.db import models
 
-class Categoria(models.Model):
-    designacao = models.CharField(max_length=45)
+# Django automatically creates an id as auto-increment PK if not specified
 
-class Localizacao(models.Model):
-    localidade = models.CharField(max_length=45)
-    rua = models.CharField(max_length=45)
-    cod_postal = models.CharField(max_length=10)
-    capacidade = models.IntegerField()
+class Location(models.Model):
+    name = models.CharField(max_length=100)
+    country = models.CharField(max_length=45)
+    city = models.CharField(max_length=45)
+    street = models.CharField(max_length=45)
+    zip_code = models.CharField(max_length=10)
+    capacity = models.IntegerField()
+    notes = models.CharField(max_length=100, blank=True, null=True)
+    
+    def __str__(self):
+        return self.name
 
-class Organizador(models.Model):
-    nome = models.CharField(max_length=100)
-    tipo = models.CharField(max_length=45)
-    email = models.CharField(max_length=75)
-    telemovel = models.CharField(max_length=20)
-
-class Artista(models.Model):
-    nome = models.CharField(max_length=100)
-    preco = models.DecimalField(max_digits=7, decimal_places=2)
-    descricao = models.CharField(max_length=45)
-    telemovel = models.CharField(max_length=20)
-
-class Evento(models.Model):
-    data_inicio = models.DateTimeField()
-    data_fim = models.DateTimeField()
-    gasto = models.DecimalField(max_digits=9, decimal_places=2)
-    localizacao = models.ForeignKey(Localizacao, on_delete=models.CASCADE)
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+class Artist(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=45)
+    price = models.DecimalField(max_digits=7, decimal_places=2)
+    contact = models.CharField(max_length=20)
+    notes = models.CharField(max_length=100, blank=True, null=True)
 
     def __str__(self):
-        return f"{self.categoria} - {self.data_inicio}"
+        return self.name
+
+class Event(models.Model):
+    name = models.CharField(max_length=100)
+    category = models.CharField(max_length=45)
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
+    expense = models.DecimalField(max_digits=9, decimal_places=2)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    artists = models.ManyToManyField('Artist', blank=True)
+    notes = models.CharField(max_length=100, blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.category} - {self.start_date}"

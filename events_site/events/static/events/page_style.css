@@ -1,0 +1,80 @@
+h1 {
+    color: #f7c325; /* Cor do título */
+}
+
+body {
+    background-color: #ffffff !important;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    background-image: url('/static/events/background3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    text-shadow: 1px 1px 4px #000;
+}
+
+.btn-custom {
+    background-color: #197fd3;
+    color: #fff;
+    border-radius: 20px;
+    border: none;
+    padding: 10px 24px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+.btn-custom:hover {
+    background-color: #103ea0;
+}
+
+.btn-custom1 {
+    background-color: #4ca2ad;
+    color: #fff;
+    border-radius: 20px;
+    border: none;
+    padding: 10px 24px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+.btn-custom1:hover {
+    background-color: #077074;
+}
+
+.spaced-top {
+    margin-top: 2rem;
+    display: inline-block;
+}
+
+body, h1, h2, h3 {
+    text-shadow: 1px 1px 4px #000;
+}
+
+.name-highlight {
+    color: #5acaf7;
+}
+
+.list-group, .location-list-highlight {
+    background: rgba(6, 99, 136, 0.85); /* fundo branco semi-transparente */
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.0);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+.list-group-item {
+    background: transparent; /* mantém o fundo transparente para não tapar o highlight */
+    border: none;
+    color: #222;
+}
+
+.event-list {
+    color: #fff;              /* letra branca */
+    margin-top: 2rem;         /* espaço no topo */
+    /* Opcional: mais espaçamento interno */
+    padding-top: 1rem;
+}
+.event-list li {
+    margin-bottom: 1rem;      /* espaço entre itens */
+}
+
+h1, h2, h3 {
+    color: #f7c325 !important;
+}
