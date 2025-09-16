@@ -1,5 +1,7 @@
 # Django Mini Project - Event Management
 
+![Preview image](demos/image.png)
+
 This project is a simple web application for managing events, locations, and artists, built with Django.
 
 ## Folder and File Structure

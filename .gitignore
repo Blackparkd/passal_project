@@ -30,4 +30,5 @@ ENV/
 *.env
 settings.py
 
+demos/
 #
